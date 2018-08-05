@@ -3,5 +3,5 @@
 #####################################
 provider "aws" {
   alias  = "tokyo"
-  region = "${lookup(var.region, "${terraform.workspace}.region")}"
+  region = "ap-northeast-1"
 }

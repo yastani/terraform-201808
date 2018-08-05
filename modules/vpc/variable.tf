@@ -1,9 +1,3 @@
-variable "region" {
-  type = "map"
-
-  default = {}
-}
-
 variable "prefix" {
   type = "map"
 
