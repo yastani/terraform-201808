@@ -4,7 +4,7 @@
 resource "aws_subnet" "priv_subnet_c" {
   vpc_id            = "${aws_vpc.vpc.id}"
   cidr_block        = "${lookup(var.subnet, "default.priv_subnet_c_cidr")}"
-  availability_zone = "${lookup(var.region, "default.region")}a"
+  availability_zone = "${data.aws_availability_zones.azs.names[1]}"
 
   tags {
     Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}${lookup(var.subnet, "default.priv_subnet_c_name")}"
