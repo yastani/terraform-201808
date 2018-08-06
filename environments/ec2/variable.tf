@@ -18,7 +18,7 @@ variable "prefix" {
 
   default = {
     # default
-    default.prefix = "1st-issue-"
+    default.prefix = "first-issue-"
   }
 }
 
@@ -32,7 +32,7 @@ variable "ec2" {
     #--------------------------------------------------------------
     # key pair
     #--------------------------------------------------------------
-    default.key_name = "1st-issue-key"
+    default.key_name = "first-issue-key"
 
     #--------------------------------------------------------------
     # web server type
