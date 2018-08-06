@@ -3,3 +3,4 @@ terraform.tfstate.d
 *.tfstate
 *.backup
 _old
+plaintext-password
