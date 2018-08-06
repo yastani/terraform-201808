@@ -74,10 +74,11 @@ resource "aws_instance" "web" {
   key_name      = "${lookup(var.ec2, "${terraform.workspace}.key_name")}"
 
   user_data_base64 = <<EOF
-IyEvYmluL2Jhc2gKCnN1ZG8geXVtIC15IGluc3RhbGwgaHR0cGQKc3VkbyBjaGtj
-b25maWcgaHR0cGQgb24Kc3VkbyBta2RpciAtcCAvdmFyL3d3dy9odG1sCnN1ZG8g
-ZWNobyAke1JBTkRPTX0gPiAvdmFyL3d3dy9odG1sL2luZGV4Lmh0bWwKc3VkbyBz
-ZXJ2aWNlIGh0dHBkIHN0YXJ0Cg==
+IyEvYmluL2Jhc2gKCiMgaHR0cGQKc3VkbyB5dW0gLXkgaW5zdGFsbCBodHRwZApz
+dWRvIGNoa2NvbmZpZyBodHRwZCBvbgpzdWRvIG1rZGlyIC1wIC92YXIvd3d3L2h0
+bWwKc3VkbyBlY2hvICR7UkFORE9NfSA+IC92YXIvd3d3L2h0bWwvaW5kZXguaHRt
+bApzdWRvIHNlcnZpY2UgaHR0cGQgc3RhcnQKCiMgbXlzcWw1NwpzdWRvIHl1bSAt
+eSBpbnN0YWxsIG15c3FsNTc=
 EOF
 
   vpc_security_group_ids = [
