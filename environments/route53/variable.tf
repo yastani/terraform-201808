@@ -18,6 +18,6 @@ variable "prefix" {
 
   default = {
     # default
-    default.prefix = "1st-issue-"
+    default.prefix = "first-issue-"
   }
 }
