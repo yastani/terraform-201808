@@ -1,3 +1,3 @@
-output "ec2" {
-  value = "${module.ec2.ec2}"
+output "security_group" {
+  value = "${module.ec2.security_group}"
 }
