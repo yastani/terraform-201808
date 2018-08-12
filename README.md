@@ -3,14 +3,9 @@
 
 ## 初期アカウントでの使用時注意点
 
-### IAM
-- ルートユーザの制限（MFA等）を行うこと
-- IAMユーザー、IAMグループ等は小規模なため管理外
-
-### EC2
-- EC2のキーペアは事前に作成しておくこと
-
-### RDS
-- RDSのパスワードで使用するKMSは事前に作成しておくこと
-- RDSのパスワードで使用するKMSへパスワードを配置するためのスクリプトを事前に実行しておくこと
-- Multi-AZは設定したが、リードレプリカは定義していない
+1. 使用するAWSアカウントのアクセスキーIDとシークレットアクセスキーとリージョンを ~/.aws/credentials に定義する
+2. aws configure --profile "YOUR PROFILE NAME" を実行する
+3. ./init-scripts/create_keypair.sh を実行する
+4. ./init-scripts/create_kms_key.sh を実行する
+5. 4 で入力したエイリアス名を ../modules/rds/mysql.tf の password に置換する
+6. ./init-scripts/terraform_apply.sh を実行する
