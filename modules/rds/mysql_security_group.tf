@@ -2,11 +2,11 @@
 # Security Group of mysql
 #--------------------------------------------------------------
 resource "aws_security_group" "mysql_sg" {
-  name   = "${lookup(var.prefix, "${terraform.workspace}.prefix")}mysql-sg"
+  name   = "${lookup(var.prefix, "default.prefix")}mysql-sg"
   vpc_id = "${lookup(var.vpc, "vpc_id")}"
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}mysql-sg"
+    Name = "${lookup(var.prefix, "default.prefix")}mysql-sg"
   }
 }
 

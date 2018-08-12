@@ -7,7 +7,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}vpc"
+    Name = "${lookup(var.prefix, "default.prefix")}vpc"
   }
 }
 
@@ -18,6 +18,6 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.vpc.id}"
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}igw"
+    Name = "${lookup(var.prefix, "default.prefix")}igw"
   }
 }

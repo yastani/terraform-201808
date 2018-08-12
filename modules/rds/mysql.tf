@@ -9,11 +9,11 @@ resource "aws_db_instance" "mysql57" {
   publicly_accessible         = false
   skip_final_snapshot         = true
   apply_immediately           = true
-  final_snapshot_identifier   = "${lookup(var.prefix, "${terraform.workspace}.prefix")}mysql57"
-  identifier                  = "${lookup(var.prefix, "${terraform.workspace}.prefix")}mysql57"
+  final_snapshot_identifier   = "${lookup(var.prefix, "default.prefix")}mysql57"
+  identifier                  = "${lookup(var.prefix, "default.prefix")}mysql57"
   engine                      = "mysql"
   engine_version              = "5.7.22"
-  instance_class              = "${lookup(var.rds, "${terraform.workspace}.instance_class")}"
+  instance_class              = "${lookup(var.rds, "default.instance_class")}"
   allocated_storage           = 10
   storage_type                = "gp2"
   username                    = "${lookup(var.rds, "default.username")}"

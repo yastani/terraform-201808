@@ -2,9 +2,9 @@
 # Route53 for web server in Private DNS
 #--------------------------------------------------------------
 resource "aws_route53_record" "private_web" {
-  count   = "${lookup(var.ec2, "${terraform.workspace}.web_server_count")}"
+  count   = "${lookup(var.ec2, "default.web_server_count")}"
   zone_id = "${lookup(var.route53, "private_zone_id")}"
-  name    = "${format("web-%03d", count.index + 1)}.${lookup(var.prefix, "${terraform.workspace}.prefix")}priv.local"
+  name    = "${format("web-%03d", count.index + 1)}.${lookup(var.prefix, "default.prefix")}priv.local"
   type    = "A"
   ttl     = 60
 

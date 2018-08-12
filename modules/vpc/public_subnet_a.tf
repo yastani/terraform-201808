@@ -8,7 +8,7 @@ resource "aws_subnet" "pub_subnet_a" {
   map_public_ip_on_launch = false
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}${lookup(var.subnet, "default.pub_subnet_a_name")}"
+    Name = "${lookup(var.prefix, "default.prefix")}${lookup(var.subnet, "default.pub_subnet_a_name")}"
   }
 }
 

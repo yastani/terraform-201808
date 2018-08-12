@@ -3,7 +3,7 @@
 #--------------------------------------------------------------
 resource "aws_route53_record" "mysql" {
   zone_id = "${lookup(var.route53, "private_zone_id")}"
-  name    = "${format("mysql57-%03d", count.index + 1)}.${lookup(var.prefix, "${terraform.workspace}.prefix")}priv.local"
+  name    = "${format("mysql57-%03d", count.index + 1)}.${lookup(var.prefix, "default.prefix")}priv.local"
   type    = "CNAME"
   ttl     = 60
 
