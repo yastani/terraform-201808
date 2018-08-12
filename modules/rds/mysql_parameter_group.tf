@@ -2,7 +2,7 @@
 # RDS MySQL Parameter Group
 #--------------------------------------------------------------
 resource "aws_db_parameter_group" "mysql57_param_group" {
-  name   = "${lookup(var.prefix, "${terraform.workspace}.prefix")}mysql57-param-group"
+  name   = "${lookup(var.prefix, "default.prefix")}mysql57-param-group"
   family = "${lookup(var.parameter_group, "default.db_family")}"
 
   parameter {

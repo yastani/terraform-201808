@@ -2,12 +2,12 @@
 # Security Group for web server
 #--------------------------------------------------------------
 resource "aws_security_group" "web-sg" {
-  name                   = "${lookup(var.prefix, "${terraform.workspace}.prefix")}web-sg"
+  name                   = "${lookup(var.prefix, "default.prefix")}web-sg"
   vpc_id                 = "${lookup(var.vpc, "vpc_id")}"
   revoke_rules_on_delete = false
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}web-sg"
+    Name = "${lookup(var.prefix, "default.prefix")}web-sg"
   }
 }
 
@@ -57,12 +57,12 @@ resource "aws_security_group_rule" "web-sg_out_to_all" {
 # Security Group for web alb
 #--------------------------------------------------------------
 resource "aws_security_group" "web-alb-sg" {
-  name                   = "${lookup(var.prefix, "${terraform.workspace}.prefix")}web-alb-sg"
+  name                   = "${lookup(var.prefix, "default.prefix")}web-alb-sg"
   vpc_id                 = "${lookup(var.vpc, "vpc_id")}"
   revoke_rules_on_delete = false
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}web-alb-sg"
+    Name = "${lookup(var.prefix, "default.prefix")}web-alb-sg"
   }
 }
 

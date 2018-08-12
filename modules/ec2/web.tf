@@ -2,12 +2,12 @@
 # EIP for web server
 #--------------------------------------------------------------
 resource "aws_eip" "web" {
-  count = "${lookup(var.ec2, "${terraform.workspace}.web_server_count")}"
+  count = "${lookup(var.ec2, "default.web_server_count")}"
   vpc   = true
 }
 
 resource "aws_eip_association" "web" {
-  count         = "${lookup(var.ec2, "${terraform.workspace}.web_server_count")}"
+  count         = "${lookup(var.ec2, "default.web_server_count")}"
   instance_id   = "${element(aws_instance.web.*.id, count.index)}"
   allocation_id = "${element(aws_eip.web.*.id, count.index)}"
 }
@@ -67,11 +67,11 @@ data "aws_ami" "amazon_linux_1_latest" {
 # Instance for web server
 #--------------------------------------------------------------
 resource "aws_instance" "web" {
-  count         = "${lookup(var.ec2, "${terraform.workspace}.web_server_count")}"
+  count         = "${lookup(var.ec2, "default.web_server_count")}"
   ami           = "${data.aws_ami.amazon_linux_1_latest.id}"
-  instance_type = "${lookup(var.ec2, "${terraform.workspace}.web_server_type")}"
+  instance_type = "${lookup(var.ec2, "default.web_server_type")}"
   subnet_id     = "${element(split(",",lookup(var.subnet, "pub_subnet_ids")), count.index % 2)}"
-  key_name      = "${lookup(var.ec2, "${terraform.workspace}.key_name")}"
+  key_name      = "${lookup(var.ec2, "default.key_name")}"
 
   user_data_base64 = <<EOF
 IyEvYmluL2Jhc2gKCiMgaHR0cGQKc3VkbyB5dW0gLXkgaW5zdGFsbCBodHRwZApz
@@ -86,6 +86,6 @@ EOF
   ]
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}${format("web-%03d", count.index + 1)}"
+    Name = "${lookup(var.prefix, "default.prefix")}${format("web-%03d", count.index + 1)}"
   }
 }

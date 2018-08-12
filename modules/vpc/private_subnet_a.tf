@@ -7,7 +7,7 @@ resource "aws_subnet" "priv_subnet_a" {
   availability_zone = "${data.aws_availability_zones.azs.names[0]}"
 
   tags {
-    Name = "${lookup(var.prefix, "${terraform.workspace}.prefix")}${lookup(var.subnet, "default.priv_subnet_a_name")}"
+    Name = "${lookup(var.prefix, "default.prefix")}${lookup(var.subnet, "default.priv_subnet_a_name")}"
   }
 }
 
