@@ -22,8 +22,6 @@ resource "aws_db_instance" "mysql57" {
   backup_retention_period     = "${lookup(var.rds, "default.backup_retention_period")}"
   backup_window               = "${lookup(var.rds, "default.preferred_backup_window")}"
   maintenance_window          = "${lookup(var.rds, "default.preferred_maintenance_window")}"
-  monitoring_interval         = 60
-  monitoring_role_arn         = "${data.aws_iam_role.rds_monitoring_role.arn}"
   db_subnet_group_name        = "${aws_db_subnet_group.mysql_subnet_group.name}"
 
   vpc_security_group_ids = [
