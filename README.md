@@ -11,4 +11,5 @@
 6. 5 で入力したエイリアス名を `../modules/rds/mysql.tf` の password に置換する
 7. `./create_s3bucket_terraform.sh` を実行する
 8. 7 で作成したS3バケット名を `../environments/*/backend.tf` に定義されているS3バケット名に置換する
-9. `./terraform_apply.sh` を実行する
+9. `../environments/ec2/variable.tf` に定義している own_ip を接続しているネットワークのグローバルIPに置換する
+10. `./terraform_apply.sh` を実行する
