@@ -1,5 +1,6 @@
-# terraform-201808
-一時作成したTerraform用リポジトリ
+# terraform-sample-aws
+何かの課題用に作成したterraformリポジトリ。
+今見ると構成がダサいのでTerraformingベースで再作成する予定。
 
 ## 初期アカウントでの使用時注意点
 
