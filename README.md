@@ -1,6 +1,6 @@
 # terraform-sample-aws
 何かの課題用に作成したterraformリポジトリ。
-今見ると構成がダサいのでTerraformingベースで再作成する予定。
+今見ると構成がダサい。
 
 ## 初期アカウントでの使用時注意点
 
